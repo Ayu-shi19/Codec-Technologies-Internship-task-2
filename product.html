@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <div id="productDetail" class="card"></div>
+    </main>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('id');
+      const detail = document.getElementById('productDetail');
+      fetch(`/api/products/${productId}`)
+        .then(res => res.json())
+        .then(product => {
+          detail.innerHTML = `
+            <h2>${product.name}</h2>
+            <img src="${product.image}" alt="${product.name}" style="width:100%;max-width:420px;border-radius:16px;" />
+            <p>${product.description}</p>
+            <p><strong>Category:</strong> ${product.category}</p>
+            <p><strong>Price:</strong> $${Number(product.price).toFixed(2)}</p>
+            <p><strong>Stock:</strong> ${product.stock} available</p>
+            <button class="primary" onclick="window.location.href='/'">Back to shop</button>
+          `;
+        })
+        .catch(() => {
+          detail.innerHTML = '<p>Product not found.</p>';
+        });
+    </script>
+  </body>
+</html>
