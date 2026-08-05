@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northstar Store</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Northstar Store</h1>
+        <p>Modern essentials for everyday living.</p>
+      </div>
+      <div class="topbar-actions">
+        <div id="authPanel" class="auth-card"></div>
+        <div id="cartSummary" class="cart-chip"></div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero card">
+        <div>
+          <p class="eyebrow">New season arrivals</p>
+          <h2>Discovery made simple.</h2>
+          <p>Browse handcrafted products, add favorites to your cart, and checkout in minutes.</p>
+        </div>
+        <div class="hero-visual">
+          <div class="badge">Free shipping over $100</div>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="products-panel">
+          <div class="section-head">
+            <h3>Featured products</h3>
+            <p id="productCount" class="muted"></p>
+          </div>
+          <div id="productGrid" class="product-grid"></div>
+        </div>
+
+        <aside class="cart-panel card">
+          <h3>Your cart</h3>
+          <div id="cartItems" class="cart-items"></div>
+          <form id="checkoutForm" class="checkout-form">
+            <label>
+              Shipping address
+              <textarea id="address" required></textarea>
+            </label>
+            <button type="submit" class="primary">Place order</button>
+          </form>
+          <p id="orderMessage" class="order-message"></p>
+        </aside>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
